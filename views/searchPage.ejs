@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Grievances Search results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+		<% var grievanceId; %>
+		<% var fullName; %>
+		<% var email; %>
+		<% var phone; %>
+		<% var location; %>
+		<% var description; %>
+		<% var image_name; %>
+		<% var status; %>
+		<% var comments; %>
+			<div class="contact100-form-title" >
+				<span class="contact100-form-title-1">
+				
+					Welcome to Next-gen grievance redressal system
+					
+				</span>
+			</div>
+	<section class="ftco-section">
+	
+		<div class="container" id="parent">
+			<div id="left">
+					</div>
+			</div>		
+		</div>
+		
+
+	
+	<form  class="table-form" method="POST" action="/status">
+	<div class="col-md-6 col-lg-4">
+	
+	 <TABLE  BORDER="1" class="container" >
+      <TR>
+      	<TH COLSPAN="2">
+         <H3><BR>Grievance Detail</H3>
+      	</TH>
+   	  </TR>
+      <TH>Attribute</TH>
+	  <TH>Value</TH>
+	  <TR>
+		<TD >Grievance ID </TD>
+	
+		<TD> <%= grievanceId%></TD>
+		 </TR>
+	 <TR>
+      <TD>Full Name</TD>
+      <TD name="fullName"><%= fullName%></TD>
+   	</TR>
+ 	<TR>
+      <TD>Email</TD>
+      <TD name="email"><%= email%></TD>
+   </TR>
+ <TR>
+      <TD>Phone</TD>
+      <TD name="phone"><%= phone%></TD>
+   </TR>
+ <TR>
+      <TD>Grievance Description</TD>
+      <TD name="description"><%= description%></TD>
+   </TR>
+ <TR>
+      <TD>Location</TD>
+      <TD name="location"><%= location%></TD>
+   </TR> 
+ <TR>
+      <TD name="image">Image(s)</TD>
+      <TD name="image"><% if ((image_name)!='' ) {%>
+		<img src="/uploads/<%= image_name %>">
+	<% } %></TD>
+   </TR>    
+<TR>
+      <TD>Status</TD>
+      <TD name="status"><%= status%></TD>
+   </TR>
+<TR>
+      <TD>Comments</TD>
+      <TD name="comments"><%= comments%></TD>
+   </TR>   
+ </TABLE>
+
+</form>
+</div>
+</section>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Welcome to Admin Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+		<% var grievanceId; %>
+		<% var fullName; %>
+		<% var email; %>
+		<% var phone; %>
+		<% var location; %>
+		<% var description; %>
+		<% var image_name; %>
+		<% var status; %>
+		<% var comments; %>
+		<% var msg; %>
+			<div class="contact100-form-title" >
+				<span class="contact100-form-title-1">
+					<% var errormessage; %>
+					<%if (errormessage != "") { %>
+					<div class="alert alert-danger justify-content-center" role="alert">
+						Sorry! <%=errormessage%>
+					</div>
+					<% } %>
+					<% if ((msg)!='') {%>
+						<div class="alert alert-success" role="alert">
+							<strong>Success!</strong><%= msg%>
+						</div>
+					<% } %>
+					Welcome to Next-gen grievance redressal system
+					
+				</span>
+			</div>
+	<section class="ftco-section">
+	
+		<div class="container" id="parent">
+			<div id="left">
+				
+				
+				<div class="row justify-content-top">
+					<div class="col-md-6 col-lg-4">
+						<form action="/searchGriev" method="GET" class="search-form">
+						<div class="search-input">
+							<input class="search-bar form-control" name = "grievId" id="grievId" placeholder="Search for Grievances" required>
+						</div>
+						<button class="search-icon-btn d-flex align-items-center justify-content-center">
+							<i class="fa fa-search"></i>
+						</button>
+	
+						
+					</form>
+				</div>
+					</div>
+			</div>	
+<!--
+			<div id="right">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<img src="images/new_ticket.png" alt="new_ticket" style="width:120px;height:120px;">
+						<h2 class="heading-section">Raise a new Grievance</h2> 
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="new-ticket">
+							<input class="search-bar form-control" type="button" onclick="check(this.form)" value="Raise a new Grievance"/>
+						</div>	
+					</div>
+				</div>
+			</div>
+-->		
+		</div>
+		
+
+	
+	<form  class="table-form" method="POST" action="/status">
+	<div class="col-md-6 col-lg-4">
+	
+	 <TABLE  BORDER="1" class="container" >
+      <TR>
+      	<TH COLSPAN="2">
+         <H3><BR>Grievance Detail</H3>
+      	</TH>
+   	  </TR>
+      <TH>Attribute</TH>
+	  <TH>Value</TH>
+	  <TR>
+		<TD >Grievance ID </TD>
+	
+		<TD><input type="text" name="grievanceId" value="<%= grievanceId%>" readonly="readonly"></TD>
+		 </TR>
+	 <TR>
+      <TD>Full Name</TD>
+      <TD ><input type="text" name="fullName" value="<%= fullName%>" readonly="readonly"></TD>
+   	</TR>
+ 	<TR>
+      <TD>Email</TD>
+	  <TD ><input type="text" name="email" value="<%= email%>" readonly="readonly"></TD>
+   </TR>
+ <TR>
+      <TD>Phone</TD>
+	  <TD ><input type="text" name="phone" value="<%= phone%>" readonly="readonly"></TD>
+   </TR>
+ <TR>
+      <TD>Grievance Description</TD>
+	  <TD ><input type="text" name="description" value="<%= description%>" readonly="readonly"></TD>
+   </TR>
+ <TR>
+      <TD>Location</TD>
+	  <TD ><input type="text" name="location" value="<%= location%>" readonly="readonly"></TD>
+   </TR> 
+ <TR>
+	  <TD >Image(s)</TD>
+
+	  <TD >
+		
+		<% if ((image_name)!='' ) {%>
+			<img src="/uploads/<%= image_name %>">
+		<% } %>
+		 
+		
+	</TD>
+   </TR>    
+   <TR>
+	<TD>Status</TD>
+	<TD name="status">
+		<select name="status">
+			<option value="<%= status%>"><%= status%></option>
+			<% if (status != "New") {%>
+				<option value="New">New</option>
+			<% } %>
+			<% if (status != "In_Progress") {%>
+				<option value="In_Progress">In Progress</option>
+			<% } %>
+			<% if (status != "Resolved") {%>
+				<option value="Resolved">Resolved</option>
+			<% } %>
+			<% if (status != "Not_a_grievance") {%>
+				<option value="Not_a_grievance">Not a grievance</option>
+			<% } %>
+			
+			
+			
+		  </select>
+	</TD>
+ </TR>
+ <TR>
+	<TD>Comments</TD>
+	<TD>
+	
+         <textarea rows = "5" cols = "60" name = "comments"  placeholder="Enter your comments here..."><%= comments%></textarea><br>
+	</TD>
+ </TR>
+ </TABLE>
+ <div class="row justify-content-center">
+ <input type="submit" name="submit" value="   Submit   " />
+</div>
+
+</form>
+</div>
+</section>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>

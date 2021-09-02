@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Welcome to Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+		<% var errormsg; %>
+		<%if (errormsg != "") { %>
+			<div class="alert alert-danger justify-content-center" role="alert">
+				Sorry! <%=errormsg%>
+			  </div>
+		<% } %>
+			<div class="contact100-form-title" >
+				<span class="contact100-form-title-1">
+					Welcome to Next-gen grievance redressal system
+				</span>
+				
+				
+			</div>
+	<section class="ftco-section">
+	
+		<div class="container" id="parent">
+			<div id="left">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<img src="images/search.png" alt="saerch" style="width:120px;height:120px;">
+<!--						<h2 class="heading-section">Search for Grievances</h2> -->
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<form  class="search-form" action='/searchGrievance' method='GET'>
+						<div class="search-input">
+							<input class="search-bar form-control" name = "grievanceId" id="grievanceId" placeholder="Search for Grievances" required>
+						</div>
+						<button class="search-icon-btn d-flex align-items-center justify-content-center ">
+							<i class="fa fa-search"></i>
+						</button>
+	
+						</div>
+					</form>
+					</div>
+			</div>	
+
+			<div id="right">
+				
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<img src="images/new_ticket.png" alt="new_ticket" style="width:120px;height:120px;">
+<!--						<h2 class="heading-section">Raise a new Grievance</h2> -->
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<form class="new-ticket" action='/insertGrievance' method="POST">
+						<div class="new-ticket">
+							<button class="search-bar form-control" formaction="/insertGrievance" >Raise a new Grievance</button>
+						</div>	
+					</form>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+	</section>
+	
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+<script language="javascript">
+            function check(form) {
+				window.open("grievance.ejs");
+            }
+</script>
+	</body>
+</html>
+
